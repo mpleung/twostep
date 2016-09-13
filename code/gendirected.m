@@ -10,7 +10,7 @@ function gendirected(vils)
 % are undirected.
 
 % Adjacency matrices are saved as csv files in the folder 
-% 'directed_adjacency_matrices/gendirected_output'.
+% 'directed_adjacency_matrices'.
 
 % The lending matrix comes with person IDs for each row and column. For
 % networks 1-9, a person ID is a 6-digit number. The first digit is the
@@ -199,7 +199,7 @@ for x=vils
   	% Add column labels
   	adjMat = [ [0,IDtoPerson]; adjMat ];
     
-  	dlmwrite(['directed_adjacency_matrices/gendirected_output/',num2str(w),'-',curRelationship,'.csv'],adjMat,'precision','%d');
+  	dlmwrite(['directed_adjacency_matrices/',num2str(w),'-',curRelationship,'.csv'],adjMat,'precision','%d');
   	
     end
     
