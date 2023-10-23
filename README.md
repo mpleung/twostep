@@ -1,10 +1,10 @@
 This repository contains code used in the paper "Two-Step Estimation of Network-Formation Models with Incomplete Information" by Michael Leung. 
 
-NOTE: The files en\_stat.m and en\_stat\_slow.m contain an error. After line 24 of the former and line 10 of the latter, you should add the command
+NOTE: Line 12 of en\_stat.m and line 26 of en\_stat\_slow.m contain an error. They should both be replaced with
 
-Xg = Xg(:,2:size(Xg,2));
+Xg = Xg(:,[4:9 16:size(Xg,2)]); % omit pid, drop, educ
 
-in order to drop a redundant 'pid' column produced by the join command used to create the matrix 'Xg'. The code should then properly implement the estimator the way it is described in the paper. The numbers in my published paper are incorrect due to this error. I thank Margherita Comola and Amit Dekel for bringing this to my attention.
+As an aside, the text of the published paper neglects to mention that homophily in age is included in the specification. The numbers in the published paper are incorrect due to this slicing error, which erroneously drops a caste indicator ('caste3' in the code) and replaces it with an education indicator ('educ\_oth'). I thank Margherita Comola and Amit Dekel for bringing this to my attention.
 
 The sections below explain some of what you see in this directory. Some of the files described only appear after running main.m. Before using the code, you will need to change [PATH] in main.m, latextables.m, misc.m, and visualizenetwork.r to the actual directory path of this folder. 
 
